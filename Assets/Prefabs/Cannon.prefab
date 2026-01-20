@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 5389617288131573809}
   - component: {fileID: 505852573280709195}
   - component: {fileID: 7591130248274497568}
+  - component: {fileID: 2772065355714957391}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Player
@@ -236,7 +237,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -295,11 +296,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletSpawner
   magazine:
   - {fileID: 9058720250512063239, guid: 75c8649bc5b37a1d9b27eb20e22efc4b, type: 3}
-  strengths: 03000000
+  strengths: 01000000
   magazineMode: 1
   director: {fileID: 5762126921436892847}
-  spawnpoint: {fileID: 8517178548546004718}
+  spawnpoint: {fileID: 5604224488120332038}
   shoot: {fileID: -4491977604226229775, guid: a21e5d7bdfdca63489aa61518179be21, type: 3}
+--- !u!114 &2772065355714957391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955002479416967901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87e1fb0bd3a21689a66aa585a1f5d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTeleport
 --- !u!1 &5604224488120332038
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +322,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8517178548546004718}
+  - component: {fileID: 7431396583957598180}
+  - component: {fileID: 4555220577267828517}
   m_Layer: 0
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
@@ -331,6 +346,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2665929401131152625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7431396583957598180
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604224488120332038}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.02847938}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.1, y: 0.07644838}
+  m_EdgeRadius: 0
+--- !u!114 &4555220577267828517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604224488120332038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e324be2ff9a4a85789cba150a7b50536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletSpawnWallChecker
 --- !u!1 &7435666237833877068
 GameObject:
   m_ObjectHideFlags: 0

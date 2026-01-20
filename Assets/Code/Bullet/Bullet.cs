@@ -12,6 +12,7 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField]
     protected float speed;
     protected Vector3 direction;
+    protected GameObject player;
     private bool lockUpdate = false;
     void Update()
     {
@@ -30,12 +31,16 @@ public abstract class Bullet : MonoBehaviour
     {
      this.strength = strength;   
     }
+    public void SetPlayer(GameObject player)
+    {
+        this.player = player;
+    }
     protected abstract void Move();
     protected abstract void OnStrength0();
     protected abstract void OnGroundCollision(Collision2D collision);
     private void OnCollisionEnter2D(Collision2D collision)
     {
-      if(collision.gameObject.CompareTag("ground"))
+      if(collision.gameObject.CompareTag("wall") || collision.gameObject.CompareTag("Player"))
         {
             OnGroundCollision(collision);
         }

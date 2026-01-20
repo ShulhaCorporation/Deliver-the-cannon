@@ -2,7 +2,12 @@ using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
 
 public class BlueBullet : Bullet
-{
+{    
+    PlayerTeleport teleport;
+    private void Start()
+    {
+     teleport = player.GetComponent<PlayerTeleport>();  
+    }
     protected override void Move()
     {
         rigidbody2d.linearVelocity = direction * speed;
@@ -15,7 +20,8 @@ public class BlueBullet : Bullet
     }
 
     protected override void OnStrength0()
-    { 
+    {   
+        teleport.TeleportPlayer(transform.position);
         Destroy(gameObject);
     }
 }
